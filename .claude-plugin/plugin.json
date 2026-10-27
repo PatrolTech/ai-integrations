@@ -8,7 +8,7 @@
     "url": "https://patroltech.online"
   },
   "homepage": "https://patroltech.online/en/features/integrations/mcp",
-  "repository": "https://github.com/PatrolTech/mcp-server",
+  "repository": "https://github.com/PatrolTech/ai-integrations",
   "license": "MIT",
   "icon": ".claude-plugin/icon.png",
   "privacyPolicyUrl": "https://patroltech.online/legal/privacy",

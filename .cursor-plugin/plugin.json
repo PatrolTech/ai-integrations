@@ -5,7 +5,7 @@
   "description": "Security patrol management: missed rounds, suspicious scans, incidents and access logs, plus checkpoints and routes set up with your confirmation.",
   "author": { "name": "PatrolTech", "email": "info@patroltech.app", "url": "https://patroltech.online" },
   "homepage": "https://patroltech.online/en/features/integrations/mcp",
-  "repository": "https://github.com/PatrolTech/mcp-server",
+  "repository": "https://github.com/PatrolTech/ai-integrations",
   "logo": "logo.png",
   "keywords": ["security", "guard tour", "patrol", "checkpoints", "incidents"],
   "mcpServers": "./mcp.json",

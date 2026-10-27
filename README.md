@@ -28,10 +28,10 @@ Answers come from your live PatrolTech data, in your language and your local tim
 | Client | How |
 |---|---|
 | **Claude** (web, desktop, mobile) | Settings → Connectors → *Add custom connector* → name `PatrolTech`, URL above → sign in |
-| **Claude Code** | `claude mcp add --transport http patroltech https://mcp.patroltech.online/mcp` — or the plugin: `/plugin marketplace add PatrolTech/mcp-server` then `/plugin install patroltech@patroltech` |
+| **Claude Code** | `claude mcp add --transport http patroltech https://mcp.patroltech.online/mcp` — or the plugin: `/plugin marketplace add PatrolTech/ai-integrations` then `/plugin install patroltech@patroltech` |
 | **ChatGPT** | Settings → Apps → create a connector with the URL above (developer mode) → sign in |
 | **Microsoft Copilot Studio** | Tools → Add a tool → Model Context Protocol → URL above, OAuth |
-| **Gemini CLI** | `gemini extensions install https://github.com/PatrolTech/mcp-server` |
+| **Gemini CLI** | `gemini extensions install https://github.com/PatrolTech/ai-integrations` |
 | **Cursor** | [Add to Cursor](cursor://anysphere.cursor-deeplink/mcp/install?name=patroltech&config=eyJ1cmwiOiJodHRwczovL21jcC5wYXRyb2x0ZWNoLm9ubGluZS9tY3AifQ==) |
 | **VS Code / GitHub Copilot** | [Install in VS Code](vscode:mcp/install?%7B%22name%22%3A%22patroltech%22%2C%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A//mcp.patroltech.online/mcp%22%7D) |
 | **Any MCP client** | Add the URL above as a remote (Streamable HTTP) server |
@@ -66,6 +66,7 @@ and locations, rename guards, update incidents, alert preferences. Every change 
 | `skills/patroltech/SKILL.md` | Agent skill: when to use PatrolTech and which tool fits each question |
 | `.claude-plugin/`, `.mcp.json` | Claude Code plugin and marketplace |
 | `.cursor-plugin/`, `mcp.json` | Cursor plugin |
+| `.codex-plugin/`, `assets/` | Codex and ChatGPT plugin |
 | `gemini-extension.json`, `GEMINI.md` | Gemini CLI extension |
 
 The server itself is hosted by PatrolTech; this repository holds the public configuration and docs.

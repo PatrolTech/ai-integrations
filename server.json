@@ -6,7 +6,7 @@
   "version": "0.1.6",
   "websiteUrl": "https://patroltech.online/en/features/integrations/mcp",
   "repository": {
-    "url": "https://github.com/PatrolTech/mcp-server",
+    "url": "https://github.com/PatrolTech/ai-integrations",
     "source": "github"
   },
   "icons": [
