@@ -9,5 +9,8 @@
   },
   "homepage": "https://patroltech.online/en/features/integrations/mcp",
   "repository": "https://github.com/PatrolTech/mcp-server",
+  "license": "MIT",
+  "icon": ".claude-plugin/icon.png",
+  "privacyPolicyUrl": "https://patroltech.online/legal/privacy",
   "keywords": ["security", "guard tour", "patrol", "checkpoints", "incidents", "facility management", "control de rondas"]
 }
