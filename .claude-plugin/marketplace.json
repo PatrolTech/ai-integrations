@@ -1,0 +1,18 @@
+{
+  "name": "patroltech",
+  "owner": {
+    "name": "PatrolTech",
+    "email": "info@patroltech.app"
+  },
+  "metadata": {
+    "description": "Official PatrolTech plugins for Claude: security patrol management."
+  },
+  "plugins": [
+    {
+      "name": "patroltech",
+      "source": "./",
+      "description": "Security patrol management: missed rounds, suspicious scans, incidents and access logs, plus checkpoints and routes set up with your confirmation.",
+      "category": "productivity"
+    }
+  ]
+}

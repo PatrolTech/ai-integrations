@@ -1,0 +1,13 @@
+{
+  "name": "patroltech",
+  "version": "0.1.6",
+  "description": "Security patrol management in Claude: missed rounds, suspicious scans, incidents and access logs, plus checkpoints and routes set up with your confirmation.",
+  "author": {
+    "name": "PatrolTech (Ingenieros Web S.L.)",
+    "email": "info@patroltech.app",
+    "url": "https://patroltech.online"
+  },
+  "homepage": "https://patroltech.online/en/features/integrations/mcp",
+  "repository": "https://github.com/PatrolTech/mcp-server",
+  "keywords": ["security", "guard tour", "patrol", "checkpoints", "incidents", "facility management", "control de rondas"]
+}

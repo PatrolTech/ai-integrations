@@ -1,0 +1,25 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "online.patroltech/patroltech",
+  "title": "PatrolTech",
+  "description": "Security patrol management: missed rounds, suspicious scans, incidents, access logs; propose checkpoints and routes.",
+  "version": "0.1.6",
+  "websiteUrl": "https://patroltech.online/en/features/integrations/mcp",
+  "repository": {
+    "url": "https://github.com/PatrolTech/mcp-server",
+    "source": "github"
+  },
+  "icons": [
+    {
+      "src": "https://patroltech.online/android-chrome-512x512.png",
+      "mimeType": "image/png",
+      "sizes": ["512x512"]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.patroltech.online/mcp"
+    }
+  ]
+}
