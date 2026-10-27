@@ -29,6 +29,7 @@ Pass `organization` only when the account has more than one.
 | Checkpoints nobody is scanning | `patroltech_checkpoints_list_unreviewed` |
 | Checkpoints, routes and schedules | `patroltech_checkpoints_list`, `patroltech_routes_get_schedules` |
 | Guard activity, app download links for a guard | `patroltech_patrollers_list_activity`, `patroltech_patrollers_get_app_links` |
+| Guard ranking, one guard's stats, scans per guard | `patroltech_patrollers_get_ranking`, `patroltech_patrollers_get_stats`, `patroltech_scans_count_by_patroller` |
 | Incidents | `patroltech_incidents_list`, `patroltech_incidents_get` |
 | Who is inside / entries and exits | `patroltech_access_list_logs` |
 | Plan usage | `patroltech_license_get_usage` |

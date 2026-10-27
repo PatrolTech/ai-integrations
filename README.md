@@ -41,8 +41,8 @@ Listings in the Claude, ChatGPT, Microsoft and Cursor directories are in review.
 ## What it can do
 
 **Read**: rounds and their status, round detail per checkpoint, rounds by route, scans (suspicious
-and invalid), checkpoints not scanned for days, checkpoints, routes and schedules, guard activity
-and app links for guards, incidents, access and visitor logs, plan usage, printable QR sheet.
+and invalid), checkpoints not scanned for days, checkpoints, routes and schedules, guard activity,
+guard ranking and per-guard stats, scans per guard, app links for guards, incidents, access and visitor logs, plan usage, printable QR sheet.
 
 **Change, always with your confirmation**: create checkpoints, create routes with schedules, add
 time windows, activate or deactivate routes, add or remove checkpoints in a route, edit checkpoints
