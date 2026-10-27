@@ -1,6 +1,6 @@
 {
   "name": "patroltech",
-  "version": "0.1.9",
+  "version": "0.1.12",
   "description": "Security patrol management: check missed rounds, suspicious scans, incidents and access logs, and set up checkpoints and routes in PatrolTech. Every change waits for your confirmation.",
   "author": {
     "name": "Ingenieros Web S.L. (PatrolTech)",
