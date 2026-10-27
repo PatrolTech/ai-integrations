@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "online.patroltech/patroltech",
   "title": "PatrolTech",
-  "description": "Security patrol management: missed rounds, suspicious scans, incidents, access logs; propose checkpoints and routes.",
+  "description": "Security patrol management: missed rounds, suspicious scans, incidents and checkpoint setup.",
   "version": "0.1.6",
   "websiteUrl": "https://patroltech.online/en/features/integrations/mcp",
   "repository": {
