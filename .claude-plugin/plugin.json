@@ -1,6 +1,6 @@
 {
   "name": "patroltech",
-  "version": "0.1.12",
+  "version": "0.2.0",
   "description": "Security patrol management in Claude: missed rounds, suspicious scans, incidents and access logs, plus checkpoints and routes set up with your confirmation.",
   "author": {
     "name": "PatrolTech (Ingenieros Web S.L.)",

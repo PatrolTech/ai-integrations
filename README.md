@@ -69,7 +69,7 @@ and locations, rename guards, update incidents, alert preferences. Every change 
 | `.codex-plugin/`, `assets/` | Codex and ChatGPT plugin |
 | `gemini-extension.json`, `GEMINI.md` | Gemini CLI extension |
 
-The server itself is hosted by PatrolTech; this repository holds the public configuration and docs.
+The server is hosted by PatrolTech at the URL above; its source code is open in [PatrolTech/mcp-server](https://github.com/PatrolTech/mcp-server). This repository holds the client configuration, plugins and docs.
 
 ## About PatrolTech
 
