@@ -10,7 +10,15 @@
   "homepage": "https://patroltech.online/en/features/integrations/mcp",
   "repository": "https://github.com/PatrolTech/ai-integrations",
   "license": "MIT",
-  "keywords": ["security", "guard tour", "patrol management", "checkpoints", "incidents", "access control", "facility management"],
+  "keywords": [
+    "security",
+    "guard tour",
+    "patrol management",
+    "checkpoints",
+    "incidents",
+    "access control",
+    "facility management"
+  ],
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
   "interface": {
@@ -39,5 +47,64 @@
     ],
     "composerIcon": "./assets/logo.png",
     "logo": "./assets/logo.png"
+  },
+  "extensions": {
+    "com.openai": {
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Patrol round status for the last week",
+              "prompt": "How many patrol rounds were completed or incomplete in the last 7 days in Demo Security?",
+              "tools_triggered": "patroltech_account_get_context, patroltech_rounds_get_status",
+              "expected_behavior": "Returns the number of rounds by status (in progress, completed, incomplete) for the last 7 days. The demo organization has mostly incomplete rounds."
+            },
+            {
+              "description": "Suspicious checkpoint scans",
+              "prompt": "Show me the suspicious scans from the last 30 days in Demo Security.",
+              "tools_triggered": "patroltech_scans_list_recent",
+              "expected_behavior": "Lists the scans flagged as suspicious, each with checkpoint, guard, time and the reason (the phone GPS was hundreds of metres away from the checkpoint)."
+            },
+            {
+              "description": "Checkpoints that nobody is scanning",
+              "prompt": "Which checkpoints in Demo Security haven't been scanned for at least 7 days?",
+              "tools_triggered": "patroltech_checkpoints_list_unreviewed",
+              "expected_behavior": "Lists the checkpoints with their site, last scan date and days without a scan, longest first (for example Rear Window in Central Building)."
+            },
+            {
+              "description": "Create a checkpoint, applied only after confirmation",
+              "prompt": "Create a checkpoint called \"Generator Room\" in North Warehouse (Demo Security).",
+              "tools_triggered": "patroltech_checkpoints_propose_create, patroltech_proposals_confirm",
+              "expected_behavior": "The assistant first shows the pending change and asks for confirmation; nothing is created yet. Only after the user answers yes does it call patroltech_proposals_confirm and report the new checkpoint."
+            },
+            {
+              "description": "Update a security incident, applied only after confirmation",
+              "prompt": "Set the incident \"Door found open\" in Demo Security to in progress with the comment \"Maintenance notified\".",
+              "tools_triggered": "patroltech_incidents_list, patroltech_incidents_propose_update, patroltech_proposals_confirm",
+              "expected_behavior": "The assistant finds the incident, shows the proposed status change and comment, and applies it only after the user confirms."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Unrelated request: PatrolTech should not be called; the assistant answers with general knowledge or web search.",
+              "prompt": "What's the weather in Madrid tomorrow?"
+            },
+            {
+              "description": "Deleting data is not available: no PatrolTech tool deletes anything, so the assistant explains that checkpoints are deleted from the PatrolTech dashboard.",
+              "prompt": "Delete the Parking Garage checkpoint in Demo Security."
+            },
+            {
+              "description": "Granting access is not available: the assistant declines and explains that users and guard accounts are created from the PatrolTech dashboard.",
+              "prompt": "Invite john@example.com as a manager of Demo Security and create a guard account for him."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "The plugin does not sell anything and handles no payments."
+      },
+      "publication": {
+        "release_notes": "First public version: patrol rounds, checkpoint scans, incidents, access logs and guard statistics, with every change confirmed by the user."
+      }
+    }
   }
 }
