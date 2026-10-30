@@ -68,7 +68,9 @@ For development in your own application, use the [official TypeScript SDK and OA
 npm install @patroltech/sdk-api
 ```
 
-The SDK is generated from PatrolTech's public OpenAPI contract. It is a development library; the MCP server is the connection used by AI assistants.
+The SDK is generated from PatrolTech's public OpenAPI contract, browsable as the [API reference](https://patroltech.github.io/sdk-api/). It is a development library; the MCP server is the connection used by AI assistants.
+
+Webhooks are in development: tell us which events you need at **info@patroltech.app**.
 
 ## Security and support
 
@@ -100,6 +102,6 @@ PatrolTech is guard tour and security patrol software by Ingenieros Web SL, Madr
 
 ## En español
 
-Conector MCP, plugin y skill oficiales de PatrolTech para control de rondas de vigilancia. Consulta rondas incompletas, escaneos sospechosos, puntos sin revisar, incidencias y accesos; cada cambio espera tu confirmación. Para desarrollar integraciones propias, utiliza el SDK TypeScript de la API pública.
+Conector MCP, plugin y skill oficiales de PatrolTech para control de rondas de vigilancia. Consulta rondas incompletas, escaneos sospechosos, puntos sin revisar, incidencias y accesos; cada cambio espera tu confirmación. Para desarrollar integraciones propias, utiliza el SDK TypeScript y la [referencia de la API pública](https://patroltech.github.io/sdk-api/). Los webhooks están en desarrollo: cuéntanos qué eventos necesitas en info@patroltech.app.
 
 [Crear cuenta gratuita](https://patroltech.online/start?utm_source=github&utm_medium=referral&utm_campaign=ai_integrations&utm_content=integrations_readme_signup_es) · [Documentación en español](https://patroltech.online/features/integrations/mcp?utm_source=github&utm_medium=referral&utm_campaign=ai_integrations&utm_content=integrations_readme_guide_es)
