@@ -1,6 +1,6 @@
 {
   "name": "patroltech",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Security patrol management: missed rounds, suspicious scans, incidents and access logs, plus checkpoints and routes set up with your confirmation.",
   "contextFileName": "GEMINI.md",
   "mcpServers": {
