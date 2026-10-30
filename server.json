@@ -3,8 +3,8 @@
   "name": "online.patroltech/patroltech",
   "title": "PatrolTech",
   "description": "Security patrol management: missed rounds, suspicious scans, incidents and checkpoint setup.",
-  "version": "0.2.3",
-  "websiteUrl": "https://patroltech.online/en/features/integrations/mcp",
+  "version": "0.2.4",
+  "websiteUrl": "https://patroltech.online/en/features/integrations/mcp?utm_source=mcp_registry&utm_medium=referral&utm_campaign=ai_integrations&utm_content=server_listing",
   "repository": {
     "url": "https://github.com/PatrolTech/mcp-server",
     "source": "github"
@@ -13,7 +13,9 @@
     {
       "src": "https://patroltech.online/android-chrome-512x512.png",
       "mimeType": "image/png",
-      "sizes": ["512x512"]
+      "sizes": [
+        "512x512"
+      ]
     }
   ],
   "remotes": [

@@ -1,13 +1,29 @@
 {
   "name": "patroltech",
   "displayName": "PatrolTech",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Security patrol management: missed rounds, suspicious scans, incidents and access logs, plus checkpoints and routes set up with your confirmation.",
-  "author": { "name": "PatrolTech", "email": "info@patroltech.app", "url": "https://patroltech.online" },
-  "homepage": "https://patroltech.online/en/features/integrations/mcp",
+  "author": {
+    "name": "PatrolTech",
+    "email": "info@patroltech.app",
+    "url": "https://patroltech.online"
+  },
+  "homepage": "https://patroltech.online/en/features/integrations/mcp?utm_source=cursor&utm_medium=referral&utm_campaign=ai_integrations&utm_content=plugin_listing",
   "repository": "https://github.com/PatrolTech/ai-integrations",
   "logo": "logo.png",
-  "keywords": ["security", "guard tour", "patrol", "checkpoints", "incidents"],
+  "keywords": [
+    "security",
+    "guard tour",
+    "patrol",
+    "checkpoints",
+    "incidents",
+    "patrol management",
+    "facility management",
+    "control de rondas",
+    "mcp",
+    "agent skill"
+  ],
   "mcpServers": "./mcp.json",
-  "skills": "./skills"
+  "skills": "./skills",
+  "license": "MIT"
 }
