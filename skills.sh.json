@@ -1,0 +1,13 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "notGrouped": "bottom",
+  "groupings": [
+    {
+      "title": "Security patrols",
+      "description": "Guard tour operations: rounds, checkpoint scans, incidents and confirmation-based changes in PatrolTech.",
+      "skills": [
+        "patroltech"
+      ]
+    }
+  ]
+}

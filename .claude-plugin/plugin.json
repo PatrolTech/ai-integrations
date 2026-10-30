@@ -1,16 +1,27 @@
 {
   "name": "patroltech",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Security patrol management in Claude: missed rounds, suspicious scans, incidents and access logs, plus checkpoints and routes set up with your confirmation.",
   "author": {
     "name": "PatrolTech (Ingenieros Web S.L.)",
     "email": "info@patroltech.app",
     "url": "https://patroltech.online"
   },
-  "homepage": "https://patroltech.online/en/features/integrations/mcp",
+  "homepage": "https://patroltech.online/en/features/integrations/mcp?utm_source=claude_code&utm_medium=referral&utm_campaign=ai_integrations&utm_content=plugin_listing",
   "repository": "https://github.com/PatrolTech/ai-integrations",
   "license": "MIT",
   "icon": ".claude-plugin/icon.png",
   "privacyPolicyUrl": "https://patroltech.online/legal/privacy",
-  "keywords": ["security", "guard tour", "patrol", "checkpoints", "incidents", "facility management", "control de rondas"]
+  "keywords": [
+    "security",
+    "guard tour",
+    "patrol",
+    "checkpoints",
+    "incidents",
+    "facility management",
+    "control de rondas",
+    "patrol management",
+    "mcp",
+    "agent skill"
+  ]
 }
