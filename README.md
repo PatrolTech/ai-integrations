@@ -52,6 +52,12 @@ The skill is at [skills/patroltech/SKILL.md](skills/patroltech/SKILL.md). Instal
 
 Answers use the live data your PatrolTech role permits, in your language and account timezone.
 
+Real answers from Claude with the PatrolTech connector, on the demo organization:
+
+![Claude listing the suspicious checkpoint scans of the last 7 days with PatrolTech: checkpoint, guard, GPS distance and device](https://patroltech.online/assets/images/ai/patroltech-claude-suspicious-scans.png)
+
+![Claude summarizing patrol rounds of the last 7 days by route with PatrolTech](https://patroltech.online/assets/images/ai/patroltech-claude-rounds.png)
+
 ## Changes require your confirmation
 
 PatrolTech can propose checkpoints, routes, schedules, time windows, route activation, checkpoint and location edits, guard renaming, incident updates and alert preferences.
