@@ -104,7 +104,7 @@
         "demo_recording_url": "https://drive.google.com/file/d/1rstYqDse2p7km-He-xNC59cvWJqkCk5M/view?usp=drivesdk"
       },
       "publication": {
-        "release_notes": "Improve connection instructions, skill and SDK discovery, and campaign attribution for public integration links."
+        "release_notes": "Privacy fix: the users and roles tool no longer returns dashboard users email addresses (name, role and scope only). Improved connection instructions and skill discovery."
       },
       "interface": {
         "displayName": "PatrolTech",
