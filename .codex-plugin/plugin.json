@@ -104,7 +104,7 @@
         "demo_recording_url": "https://drive.google.com/file/d/1rstYqDse2p7km-He-xNC59cvWJqkCk5M/view?usp=drivesdk"
       },
       "publication": {
-        "release_notes": "Privacy fix: the users and roles tool no longer returns dashboard users email addresses (name, role and scope only). Improved connection instructions and skill discovery."
+        "release_notes": "Privacy fix: the users and roles tool no longer returns dashboard users' email addresses (name, role and scope only). Cancelling a pending change is now declared as destructive, so assistants treat it with care. Improved connection instructions and skill discovery, and security updates to dependencies."
       },
       "interface": {
         "displayName": "PatrolTech",
