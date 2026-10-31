@@ -1,7 +1,7 @@
 {
   "name": "patroltech",
   "displayName": "PatrolTech",
-  "version": "0.2.4",
+  "version": "0.2.6",
   "description": "Security patrol management: missed rounds, suspicious scans, incidents and access logs, plus checkpoints and routes set up with your confirmation.",
   "author": {
     "name": "PatrolTech",
