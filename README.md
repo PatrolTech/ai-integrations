@@ -76,7 +76,7 @@ Webhooks are in development: tell us which events you need at **info@patroltech.
 
 OAuth 2.1 with PKCE, role-scoped access, rate limits and an audit log protect the connection. Revoke access from your connected-app settings when it is no longer needed.
 
-[Privacy policy](https://patroltech.online/legal/privacy) · [Terms](https://patroltech.online/legal/terms) · [Connection help](https://patroltech.online/en/features/integrations/mcp?utm_source=github&utm_medium=referral&utm_campaign=ai_integrations&utm_content=integrations_readme_support)
+[Documentation](https://patroltech.online/en/features/integrations/mcp?utm_source=github&utm_medium=referral&utm_campaign=ai_integrations&utm_content=integrations_readme_docs) · [Support](https://github.com/PatrolTech/ai-integrations/issues) · [Privacy policy](https://patroltech.online/legal/privacy) · [Terms](https://patroltech.online/legal/terms) · [Connection help](https://patroltech.online/en/features/integrations/mcp?utm_source=github&utm_medium=referral&utm_campaign=ai_integrations&utm_content=integrations_readme_support)
 
 Questions: **info@patroltech.app**. Keep passwords, tokens and customer data out of public issues.
 
