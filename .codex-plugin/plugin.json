@@ -1,6 +1,6 @@
 {
   "name": "patroltech",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Security patrol management: check missed rounds, suspicious scans, incidents and access logs, and set up checkpoints and routes in PatrolTech. Every change waits for your confirmation.",
   "author": {
     "name": "Ingenieros Web S.L. (PatrolTech)",
@@ -104,7 +104,7 @@
         "demo_recording_url": "https://drive.google.com/file/d/1rstYqDse2p7km-He-xNC59cvWJqkCk5M/view?usp=drivesdk"
       },
       "publication": {
-        "release_notes": "Privacy fix: the users and roles tool no longer returns dashboard users' email addresses (name, role and scope only). Cancelling a pending change is now declared as destructive, so assistants treat it with care. Improved connection instructions and skill discovery, and security updates to dependencies."
+        "release_notes": "Security hardening: the API client now rejects malformed request paths and no longer follows redirects, so your session token can only reach the PatrolTech API. Dependency updates."
       },
       "interface": {
         "displayName": "PatrolTech",
