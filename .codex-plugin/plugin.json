@@ -1,6 +1,6 @@
 {
   "name": "patroltech",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "Security patrol management: check missed rounds, suspicious scans, incidents and access logs, and set up checkpoints and routes in PatrolTech. Every change waits for your confirmation.",
   "author": {
     "name": "Ingenieros Web S.L. (PatrolTech)",
@@ -104,7 +104,7 @@
         "demo_recording_url": "https://drive.google.com/file/d/1rstYqDse2p7km-He-xNC59cvWJqkCk5M/view?usp=drivesdk"
       },
       "publication": {
-        "release_notes": "Security hardening: the API client now rejects malformed request paths and no longer follows redirects, so your session token can only reach the PatrolTech API. Dependency updates."
+        "release_notes": "New guided prompts to review missed rounds and suspicious scans, get a weekly summary and set up an account, plus two reference guides on choosing a tool and reading PatrolTech data."
       },
       "interface": {
         "displayName": "PatrolTech",
