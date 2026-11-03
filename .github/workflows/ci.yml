@@ -4,12 +4,15 @@ on:
   pull_request:
   push:
     branches: [main]
+  # publish-registry.yml runs it before publishing, so a merge to main validates twice.
+  workflow_call:
 
 permissions:
   contents: read
 
 concurrency:
-  group: ci-${{ github.ref }}
+  # Inside workflow_call, github.workflow is the caller's name: this group never collides with CI's own runs.
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
