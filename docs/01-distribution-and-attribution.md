@@ -48,3 +48,17 @@ Retain the public listing URL, submission receipt, actual status and tagged dest
 - [Cursor marketplace](https://cursor.com/marketplace/publish): submit the public plugin repository after the publisher accepts the marketplace terms.
 - [Official MCP Registry](https://registry.modelcontextprotocol.io): canonical server metadata, separate from host-specific marketplace approval.
 - [Claude connector directory](https://claude.ai/directory/patroltech): the public community listing.
+
+## Releasing a version
+
+Bump the version in the five versioned manifests (`.claude-plugin/plugin.json`, `.codex-plugin/plugin.json`, `.cursor-plugin/plugin.json`, `gemini-extension.json`, `server.json`) and Codex's `release_notes`, then merge to `main`. CI checks that they agree.
+
+| Directory | How it updates |
+| --- | --- |
+| Official MCP Registry | Automatic. `publish-registry.yml` publishes `server.json` after CI passes when the Registry does not have that version yet. It signs in with the `patroltech.online` HTTP key, stored as `MCP_REGISTRY_PRIVATE_KEY` in the `registry` environment, which only `main` can use. |
+| Claude Code plugin, Gemini CLI | Install from the repository. |
+| Glama | Reads the repository and the Registry; it has no publication API. |
+| skills.sh | Listed from installation telemetry; there is no publication command. |
+| LobeHub | Manual. Publishing needs the maintainer's `lhm` user session and LobeHub issues no CI token. |
+
+GitHub OIDC cannot replace the HTTP key: the Registry grants OIDC tokens only the `io.github.<owner>/*` namespace, not the `online.patroltech/*` domain namespace.

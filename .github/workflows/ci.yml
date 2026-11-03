@@ -4,12 +4,15 @@ on:
   pull_request:
   push:
     branches: [main]
+  # Publishing workflows run the same validation before they publish.
+  workflow_call:
 
 permissions:
   contents: read
 
 concurrency:
-  group: ci-${{ github.ref }}
+  # A called workflow sees its caller's name, so a caller never cancels this run.
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
