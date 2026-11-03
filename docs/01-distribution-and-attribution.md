@@ -51,14 +51,19 @@ Retain the public listing URL, submission receipt, actual status and tagged dest
 
 ## Releasing a version
 
-Bump the version in the five versioned manifests (`.claude-plugin/plugin.json`, `.codex-plugin/plugin.json`, `.cursor-plugin/plugin.json`, `gemini-extension.json`, `server.json`) and Codex's `release_notes`, then merge to `main`. CI checks that they agree.
+Bump `version` in every manifest listed in `scripts/validate-manifests.mjs` and update `release_notes` in `.codex-plugin/plugin.json`, then merge to `main`. CI fails if the versions differ; it does not check the release notes.
 
 | Directory | How it updates |
 | --- | --- |
-| Official MCP Registry | Automatic. `publish-registry.yml` publishes `server.json` after CI passes when the Registry does not have that version yet. It signs in with the `patroltech.online` HTTP key, stored as `MCP_REGISTRY_PRIVATE_KEY` in the `registry` environment, which only `main` can use. |
-| Claude Code plugin, Gemini CLI | Install from the repository. |
+| Official MCP Registry | Automatic: `publish-registry.yml` publishes `server.json` after CI passes, when the Registry does not have that version yet. Run it by hand from the Actions tab to retry a failed publication. |
+| Claude Code plugin, Gemini CLI | No step: users install from the repository, so merging to `main` is the release. |
 | Glama | Reads the repository and the Registry; it has no publication API. |
-| skills.sh | Listed from installation telemetry; there is no publication command. |
-| LobeHub | Manual. Publishing needs the maintainer's `lhm` user session and LobeHub issues no CI token. |
+| skills.sh | Listed from `npx skills add` installation telemetry; there is no publication command. |
+| Cursor marketplace, OpenAI (Codex and ChatGPT) | Listings submitted to each marketplace for review; this workflow does not update them. |
+| LobeHub | Manual: publishing needs the maintainer's `lhm` login session, and LobeHub issues no CI token. |
 
-GitHub OIDC cannot replace the HTTP key: the Registry grants OIDC tokens only the `io.github.<owner>/*` namespace, not the `online.patroltech/*` domain namespace.
+### Registry credentials
+
+The workflow signs in with the `patroltech.online` HTTP key, whose public half is served at `https://patroltech.online/.well-known/mcp-registry-auth`. The private key is the `MCP_REGISTRY_PRIVATE_KEY` secret of the `registry` environment, whose deployment branch policy (Settings → Environments) admits only `main`.
+
+GitHub OIDC cannot replace the key: the Registry grants OIDC tokens only the `io.github.<owner>/*` namespace, not the `online.patroltech/*` domain namespace.

@@ -4,14 +4,14 @@ on:
   pull_request:
   push:
     branches: [main]
-  # Publishing workflows run the same validation before they publish.
+  # publish-registry.yml runs it before publishing, so a merge to main validates twice.
   workflow_call:
 
 permissions:
   contents: read
 
 concurrency:
-  # A called workflow sees its caller's name, so a caller never cancels this run.
+  # Inside workflow_call, github.workflow is the caller's name: this group never collides with CI's own runs.
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 

@@ -6,9 +6,13 @@ on:
   push:
     branches: [main]
     paths: [server.json]
+  # Retries a failed publication; the registry environment only accepts main.
+  workflow_dispatch:
 
-permissions: {}
+permissions:
+  contents: read
 
+# Queued runs wait instead of cancelling a publication; each one checks the Registry first.
 concurrency:
   group: publish-registry
   cancel-in-progress: false
@@ -23,45 +27,47 @@ jobs:
   validate:
     name: Validate
     uses: ./.github/workflows/ci.yml
-    permissions:
-      contents: read
 
-  version:
+  registry-status:
     name: Check published version
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    permissions:
-      contents: read
     outputs:
-      published: ${{ steps.check.outputs.published }}
+      version: ${{ steps.lookup.outputs.version }}
+      versions-url: ${{ steps.lookup.outputs.versions-url }}
+      published: ${{ steps.lookup.outputs.published }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
 
-      - id: check
+      - id: lookup
+        name: Look up the version in the Registry
         run: |
-          name=$(jq -r .name server.json)
           version=$(jq -r .version server.json)
+          # The API takes the server name with its slash encoded.
+          versions_url="$REGISTRY_URL/v0.1/servers/$(jq -r '.name | @uri' server.json)/versions"
           status=$(curl -sS --retry 3 -o /dev/null -w '%{http_code}' \
-            "$REGISTRY_URL/v0.1/servers/${name//\//%2F}/versions/$version")
+            "$versions_url/$(jq -rn --arg v "$version" '$v | @uri')")
           case "$status" in
             200) published=true ;;
             404) published=false ;;
-            *) echo "::error::The Registry answered $status for $name $version"; exit 1 ;;
+            *) echo "::error::The Registry answered $status for version $version"; exit 1 ;;
           esac
-          echo "$name $version published: $published"
-          echo "published=$published" >> "$GITHUB_OUTPUT"
+          echo "Version $version published: $published"
+          {
+            echo "version=$version"
+            echo "versions-url=$versions_url"
+            echo "published=$published"
+          } >> "$GITHUB_OUTPUT"
 
   publish:
     name: Publish
-    needs: [validate, version]
-    if: needs.version.outputs.published == 'false'
+    needs: [validate, registry-status]
+    if: needs.registry-status.outputs.published == 'false'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     environment: registry
-    permissions:
-      contents: read
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -74,6 +80,7 @@ jobs:
             "https://github.com/modelcontextprotocol/registry/releases/download/v$MCP_PUBLISHER_VERSION/mcp-publisher_linux_amd64.tar.gz"
           echo "$MCP_PUBLISHER_SHA256  $archive" | sha256sum --check --strict
           tar -xzf "$archive" -C "$RUNNER_TEMP" mcp-publisher
+          echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
 
       # The domain namespace (online.patroltech/*) needs the key whose public half is
       # served at https://patroltech.online/.well-known/mcp-registry-auth.
@@ -81,17 +88,29 @@ jobs:
         env:
           MCP_REGISTRY_PRIVATE_KEY: ${{ secrets.MCP_REGISTRY_PRIVATE_KEY }}
         run: |
-          "$RUNNER_TEMP/mcp-publisher" login http --registry "$REGISTRY_URL" \
+          if [ -z "$MCP_REGISTRY_PRIVATE_KEY" ]; then
+            echo "::error::MCP_REGISTRY_PRIVATE_KEY is missing from the registry environment"
+            exit 1
+          fi
+          mcp-publisher login http --registry "$REGISTRY_URL" \
             --domain patroltech.online --private-key "$MCP_REGISTRY_PRIVATE_KEY"
 
       - name: Publish server.json
-        run: '"$RUNNER_TEMP/mcp-publisher" publish server.json'
+        run: mcp-publisher publish server.json
 
-      - name: Confirm the new version is the latest
+      - name: Confirm the new version is the active latest
+        env:
+          VERSION: ${{ needs.registry-status.outputs.version }}
+          VERSIONS_URL: ${{ needs.registry-status.outputs.versions-url }}
         run: |
-          name=$(jq -r .name server.json)
-          version=$(jq -r .version server.json)
-          latest=$(curl -fsS --retry 3 "$REGISTRY_URL/v0.1/servers/${name//\//%2F}/versions/latest")
-          jq -e --arg version "$version" \
-            '.server.version == $version and ._meta["io.modelcontextprotocol.registry/official"].status == "active"' \
-            <<< "$latest"
+          for attempt in 1 2 3 4 5; do
+            if curl -fsS "$VERSIONS_URL/latest" | jq -e --arg version "$VERSION" \
+              '.server.version == $version and ._meta["io.modelcontextprotocol.registry/official"].status == "active"' \
+              > /dev/null; then
+              echo "The Registry serves $VERSION as the active latest version"
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "::error::The Registry does not serve $VERSION as the active latest version"
+          exit 1
